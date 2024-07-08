@@ -6,7 +6,6 @@ import {
   DataArea, 
   Underline, 
   FormHeader, 
-  Inputs, 
   CheckboxArea, 
   ContainerCheckboxArea, 
   CustomArea, 
@@ -17,6 +16,7 @@ import {
   FormButton, 
   ButtonsArea 
 } from './FormCustomProductStyles';
+import styles from '../formCustomProduct/FormCustomProduct.module.css';
 import InputMask from 'react-input-mask';
 
 function FormCustomProduct() {
@@ -115,15 +115,15 @@ function FormCustomProduct() {
                 <DataArea>
                     <InputArea>
                         <label>Nome completo</label>
-                        <Inputs mask="(99) 9 9999-9999" maskChar=" " type="text" id="nomeCompleto" value={formData.nomeCompleto} onChange={handleChange} placeholder='Digite seu nome completo' required />
+                        <InputMask className={styles.inputStyle} type="text" id="nomeCompleto" value={formData.nomeCompleto} onChange={handleChange} placeholder='Digite seu nome completo' required />
                     </InputArea>
                     <InputArea>
                         <label>CPF</label>
-                        <Inputs type="text" id="cpf" value={formData.cpf} onChange={handleChange} placeholder='___.___.__-__' required />
+                        <InputMask mask="999.999.999-99" className={styles.inputStyle} type="text" id="cpf" value={formData.cpf} onChange={handleChange} placeholder='___.___.___.__' required />
                     </InputArea>
                     <InputArea>
                         <label>Telefone</label>
-                        <Inputs type="text" id="telefone" value={formData.telefone} onChange={handleChange} placeholder='(    ) _ ____-____' required />
+                        <InputMask mask="(99) 9 9999-9999"  className={styles.inputStyle} type="text" id="telefone" value={formData.telefone} onChange={handleChange} placeholder='(    ) _ ____-____' required />
                     </InputArea>
                 </DataArea>
                 <ContainerCheckboxArea>
@@ -162,7 +162,7 @@ function FormCustomProduct() {
                     <CustomArea>
                         <CustomInput>
                             <label>Digite seu nome para personalizar</label>
-                            <Inputs type="text" id="nomeParaPersonalizar" value={formData.nomeParaPersonalizar} onChange={handleChange} />
+                            <input type="text" className={styles.inputStyle} id="nomeParaPersonalizar" value={formData.nomeParaPersonalizar} onChange={handleChange} />
                         </CustomInput>
                         <CustomInput>
                             <LabelInputUploadFile htmlFor='upload'>
@@ -170,7 +170,7 @@ function FormCustomProduct() {
                                 <br />
                                 {file && <ImagePreview src={URL.createObjectURL(file)} alt="Sua Imagem" />}
                             </LabelInputUploadFile>
-                            <Inputs type="file" id="upload" onChange={handleFileChange} required/>
+                            <input type="file" id="upload" onChange={handleFileChange} required/>
                         </CustomInput>
                         <CustomInput>
                             <label>Observações</label>

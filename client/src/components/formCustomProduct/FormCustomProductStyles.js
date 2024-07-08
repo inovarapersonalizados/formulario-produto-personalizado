@@ -52,27 +52,6 @@ export const InputArea = styled.div`
     flex-direction: column;
 `;
 
-export const Inputs = styled.input`
-    border: 2px solid transparent;
-    border-radius: 30px;
-    background-color: #EFEFEF;
-    padding: 10px;
-    outline: 0;
-    width: 100%;
-
-    &:hover {
-        border: 2px solid #0D5190;
-    }
-
-    &:focus {
-        border: 2px solid #0D5190;
-    }
-
-    &[type="file"] {
-        display: none;
-    }
-`;
-
 export const ContainerCheckboxArea = styled.div`
     display: flex;
     flex-direction: column;
