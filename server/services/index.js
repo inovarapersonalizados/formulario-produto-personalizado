@@ -26,7 +26,7 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post('/api/send-email', upload.single('imagem'), async (req, res) => {
-  const { nomeCompleto, cpf, email, telefone, nomeParaPersonalizar, observacoes, produto } = req.body;
+  const { nomeCompleto, cpf, telefone, nomeParaPersonalizar, observacoes, produto } = req.body;
   const file = req.file;
 
   const mailOptions = {
