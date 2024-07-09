@@ -170,7 +170,7 @@ function FormCustomProduct() {
                                 <br />
                                 {file && <ImagePreview src={URL.createObjectURL(file)} alt="Sua Imagem" />}
                             </LabelInputUploadFile>
-                            <input type="file" id="upload" onChange={handleFileChange} required/>
+                            <input type="file" className={styles.upload}id="upload" onChange={handleFileChange} required/>
                         </CustomInput>
                         <CustomInput>
                             <label>Observações</label>
@@ -179,7 +179,9 @@ function FormCustomProduct() {
                     </CustomArea>
                 )}
                 <ButtonsArea>
-                    <FormButton $primary={true} type="button">Voltar</FormButton>
+                    <FormButton onClick={() => {
+                        window.location = 'https://inovarapersonalizados.com/'
+                    }} $primary={true} type="button">Voltar</FormButton>
                     <FormButton type='submit'>Enviar</FormButton>
                 </ButtonsArea>
             </FormContainer>

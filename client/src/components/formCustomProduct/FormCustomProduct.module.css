@@ -18,3 +18,7 @@
 .inputStyle[type="file"] {
     display: none;
 }
+
+.upload {
+    display: none;
+}
