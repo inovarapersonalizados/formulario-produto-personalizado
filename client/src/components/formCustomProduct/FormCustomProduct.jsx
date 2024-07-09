@@ -20,9 +20,6 @@ import styles from '../formCustomProduct/FormCustomProduct.module.css';
 import InputMask from 'react-input-mask';
 
 function FormCustomProduct() {
-
-    console.log(import.meta.env.VITE_BASE_URL_API);
-
     const [file, setFile] = useState(null);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [formData, setFormData] = useState({
@@ -78,7 +75,7 @@ function FormCustomProduct() {
         formDataToSend.append('imagem', file);
 
         try {
-            const response = await axios.post('http://localhost:3000/api/send-email', formDataToSend, {
+            const response = await axios.post(import.meta.env.VITE_BASE_URL_API, formDataToSend, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
