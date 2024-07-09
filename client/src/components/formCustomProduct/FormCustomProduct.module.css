@@ -7,14 +7,14 @@
     width: 100%;
 }
 
-/* &:hover {
+.inputStyle:hover {
     border: 2px solid #0D5190;
 }
 
-&:focus {
+.inputStyle:focus {
     border: 2px solid #0D5190;
 }
 
-&[type="file"] {
+.inputStyle[type="file"] {
     display: none;
-} */
+}

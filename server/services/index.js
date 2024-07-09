@@ -4,10 +4,10 @@ const nodemailer = require('nodemailer');
 const multer = require('multer');
 const dotenv = require('dotenv');
 
-dotenv.configDotenv();
+dotenv.config();
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
 app.use(cors());
 app.use(express.json());
@@ -17,11 +17,11 @@ const upload = multer();
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
-  port: 465,
+  port: process.env.PORT_API,
   secure: true,
   auth: {
-    user: 'guizaorocha543@gmail.com',
-    pass: 'ykul ezxp livs yliu'
+    user: 'inovarapersonalizados@gmail.com',
+    pass: process.env.AUTH_USER_PASS_API
   },
 });
 
@@ -30,7 +30,7 @@ app.post('/api/send-email', upload.single('imagem'), async (req, res) => {
   const file = req.file;
 
   const mailOptions = {
-    from: "guizaorocha543@gmail.com",
+    from: "inovarapersonalizados@gmail.com",
     to: "guizaorocha5432@gmail.com",
     subject: "Personalização de Produto",
     text: `
@@ -68,7 +68,7 @@ app.post('/api/send-email', upload.single('imagem'), async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.json({"message": "olá, está é a rota principal."});
+  res.json({message: "olá, está é a rota principal.", porta: port});
 });
 
 app.listen(port, () => {
