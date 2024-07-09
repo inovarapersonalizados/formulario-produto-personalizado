@@ -21,6 +21,8 @@ import InputMask from 'react-input-mask';
 
 function FormCustomProduct() {
 
+    console.log(import.meta.env.VITE_BASE_URL_API);
+
     const [file, setFile] = useState(null);
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [formData, setFormData] = useState({
