@@ -20,22 +20,23 @@ const transporter = nodemailer.createTransport({
   port: process.env.PORT_API,
   secure: true,
   auth: {
-    user: 'inovarapersonalizados@gmail.com',
+    user: process.env.AUTH_USER_EMAIL_API,
     pass: process.env.AUTH_USER_PASS_API
   },
 });
 
 app.post('/api/send-email', upload.single('imagem'), async (req, res) => {
-  const { nomeCompleto, cpf, telefone, nomeParaPersonalizar, observacoes, produto } = req.body;
+  const { nomeCompleto, cpf, email, telefone, nomeParaPersonalizar, observacoes, produto } = req.body;
   const file = req.file;
 
   const mailOptions = {
-    from: "inovarapersonalizados@gmail.com",
-    to: "guizaorocha5432@gmail.com",
+    from: process.env.AUTH_USER_EMAIL_API,
+    to: email,
     subject: "Personalização de Produto",
     text: `
       Nome Completo: ${nomeCompleto}
       CPF: ${cpf}
+      Email: ${email}
       Telefone: ${telefone}
       Produto: ${produto}
       Nome para Personalizar: ${nomeParaPersonalizar}
@@ -44,6 +45,7 @@ app.post('/api/send-email', upload.single('imagem'), async (req, res) => {
     html: `
       <p><strong>Nome Completo:</strong> ${nomeCompleto}</p>
       <p><strong>CPF:</strong> ${cpf}</p>
+      <p><strong>Email:</strong> ${email}</p>
       <p><strong>Telefone:</strong> ${telefone}</p>
       <p><strong>Produto:</strong> ${produto}</p>
       <p><strong>Nome para Personalizar:</strong> ${nomeParaPersonalizar}</p>

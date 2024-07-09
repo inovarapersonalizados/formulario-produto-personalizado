@@ -26,6 +26,7 @@ function FormCustomProduct() {
     const [formData, setFormData] = useState({
         nomeCompleto: '',
         cpf: '',
+        email: '',
         telefone: '',
         nomeParaPersonalizar: '',
         observacoes: ''
@@ -58,8 +59,8 @@ function FormCustomProduct() {
             return;
         }
 
-        const { nomeCompleto, cpf, telefone } = formData;
-        if (!nomeCompleto || !cpf || !telefone) {
+        const { nomeCompleto, cpf, email, telefone } = formData;
+        if (!nomeCompleto || !cpf || !email || !telefone) {
             alert('Por favor, preencha todos os campos obrigatórios.');
             return;
         }
@@ -67,6 +68,7 @@ function FormCustomProduct() {
         const formDataToSend = new FormData();
         formDataToSend.append('nomeCompleto', formData.nomeCompleto);
         formDataToSend.append('cpf', formData.cpf);
+        formDataToSend.append('email', formData.email);
         formDataToSend.append('telefone', formData.telefone);
         formDataToSend.append('produto', selectedProduct);
         formDataToSend.append('nomeParaPersonalizar', formData.nomeParaPersonalizar);
@@ -86,6 +88,7 @@ function FormCustomProduct() {
                 setFormData({
                     nomeCompleto: '',
                     cpf: '',
+                    email: '',
                     telefone: '',
                     nomeParaPersonalizar: '',
                     observacoes: ''
@@ -120,6 +123,10 @@ function FormCustomProduct() {
                     <InputArea>
                         <label>CPF</label>
                         <InputMask mask="999.999.999-99" className={styles.inputStyle} type="text" id="cpf" value={formData.cpf} onChange={handleChange} placeholder='___.___.___.__' required />
+                    </InputArea>
+                    <InputArea>
+                        <label>Email</label>
+                        <input className={styles.inputStyle} type='email' id="email" value={formData.email} onChange={handleChange} placeholder='Digite seu email'/>
                     </InputArea>
                     <InputArea>
                         <label>Telefone</label>
