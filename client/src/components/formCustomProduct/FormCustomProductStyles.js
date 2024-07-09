@@ -90,6 +90,11 @@ export const LabelInputUploadFile = styled.label`
     cursor: pointer;
     width: fit-content;
     color: gray;
+
+    &:hover {
+        border: 2px solid #0D5190;
+    }
+
 `;
 
 export const ImagePreview = styled.img`
