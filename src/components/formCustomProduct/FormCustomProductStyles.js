@@ -14,6 +14,11 @@ export const FormContainer = styled.form`
     margin: 0 auto;
     width: 100%;
 
+    img {
+        width: 30%;
+        margin: 0 auto 12px auto;
+    }
+
     @media screen and (max-width: 900px) {
         padding: 20px;
     }
@@ -148,4 +153,12 @@ export const FormButton = styled.button`
     @media screen and (max-width: 768px) {
         width: 100%;
     }
+`;
+
+export const FormFooter = styled.footer`
+    width: 100%;
+    color: white;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 18px;
 `;

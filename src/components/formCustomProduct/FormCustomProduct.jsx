@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { 
-  FormContainer, 
-  InputArea, 
-  DataArea, 
-  Underline, 
-  FormHeader, 
-  CheckboxArea, 
-  ContainerCheckboxArea, 
-  CustomArea, 
-  CustomInput, 
-  LabelInputUploadFile, 
-  ImagePreview, 
-  CustomObs, 
-  FormButton, 
-  ButtonsArea 
+import {
+    FormContainer,
+    InputArea,
+    DataArea,
+    Underline,
+    FormHeader,
+    CheckboxArea,
+    ContainerCheckboxArea,
+    CustomArea,
+    CustomInput,
+    LabelInputUploadFile,
+    ImagePreview,
+    CustomObs,
+    FormButton,
+    ButtonsArea,
+    FormFooter
 } from './FormCustomProductStyles';
+import ImgLogoInovara from '../../assets/images/logoInovara.png';
 import styles from '../formCustomProduct/FormCustomProduct.module.css';
 import InputMask from 'react-input-mask';
 
@@ -104,11 +106,17 @@ function FormCustomProduct() {
         }
     };
 
+    const getDate = () => {
+        const date = new Date();
+        return `${date.getFullYear()} Inovara Personalizados. Todos os direitos reservados.`;
+    };
+
     return (
         <div>
             <FormContainer onSubmit={handleSubmit}>
                 <FormHeader>
-                    <h1>Formulário para personalizar produto</h1>
+                    <img src={ImgLogoInovara} alt="Logo Inovara" />
+                    <h1>Personalizar produto</h1>
                     <Underline />
                     <p>Após a compra, você tem até 24 horas para nos enviar seus dados e suas personalizações que vamos entrar em contato com você para confirmar o informado.</p>
                     <p>*Obs: o tempo de entrega está sujeito a alterações devido a aprovação da arte e personalização.</p>
@@ -125,11 +133,11 @@ function FormCustomProduct() {
                     </InputArea>
                     <InputArea>
                         <label>Email</label>
-                        <input className={styles.inputStyle} type='email' id="email" value={formData.email} onChange={handleChange} placeholder='Digite seu email'/>
+                        <input className={styles.inputStyle} type='email' id="email" value={formData.email} onChange={handleChange} placeholder='Digite seu email' />
                     </InputArea>
                     <InputArea>
                         <label>Telefone</label>
-                        <InputMask mask="(99) 9 9999-9999"  className={styles.inputStyle} type="text" id="telefone" value={formData.telefone} onChange={handleChange} placeholder='(    ) _ ____-____' required />
+                        <InputMask mask="(99) 9 9999-9999" className={styles.inputStyle} type="text" id="telefone" value={formData.telefone} onChange={handleChange} placeholder='(    ) _ ____-____' required />
                     </InputArea>
                 </DataArea>
                 <ContainerCheckboxArea>
@@ -137,27 +145,27 @@ function FormCustomProduct() {
                     <div>
                         <CheckboxArea>
                             <label>Caneca</label>
-                            <input 
-                                type="checkbox" 
-                                checked={selectedProduct === 'caneca'} 
+                            <input
+                                type="checkbox"
+                                checked={selectedProduct === 'caneca'}
                                 onChange={() => handleCheckboxChange('caneca')}
                                 disabled={selectedProduct !== null && selectedProduct !== 'caneca'}
                             />
                         </CheckboxArea>
                         <CheckboxArea>
                             <label>Agenda</label>
-                            <input 
-                                type="checkbox" 
-                                checked={selectedProduct === 'agenda'} 
+                            <input
+                                type="checkbox"
+                                checked={selectedProduct === 'agenda'}
                                 onChange={() => handleCheckboxChange('agenda')}
                                 disabled={selectedProduct !== null && selectedProduct !== 'agenda'}
                             />
                         </CheckboxArea>
                         <CheckboxArea>
                             <label>Caderno</label>
-                            <input 
-                                type="checkbox" 
-                                checked={selectedProduct === 'caderno'} 
+                            <input
+                                type="checkbox"
+                                checked={selectedProduct === 'caderno'}
                                 onChange={() => handleCheckboxChange('caderno')}
                                 disabled={selectedProduct !== null && selectedProduct !== 'caderno'}
                             />
@@ -176,7 +184,7 @@ function FormCustomProduct() {
                                 <br />
                                 {file && <ImagePreview src={URL.createObjectURL(file)} alt="Sua Imagem" />}
                             </LabelInputUploadFile>
-                            <input type="file" className={styles.upload} id="upload" onChange={handleFileChange} required/>
+                            <input type="file" className={styles.upload} id="upload" onChange={handleFileChange} required />
                         </CustomInput>
                         <CustomInput>
                             <label>Observações</label>
@@ -191,6 +199,10 @@ function FormCustomProduct() {
                     <FormButton type='submit'>Enviar</FormButton>
                 </ButtonsArea>
             </FormContainer>
+            <FormFooter>
+                <p>&copy; {getDate()}</p>
+            </FormFooter>
+
         </div>
     );
 }

@@ -9,4 +9,4 @@ function HomeForm() {
   )
 }
 
-export default HomeForm
+export default HomeForm;
