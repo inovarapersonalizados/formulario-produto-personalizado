@@ -2,11 +2,7 @@ import FormCustomProduct from '../components/formCustomProduct/FormCustomProduct
 
 function HomeForm() {
 
-  return (
-    <>
-      <FormCustomProduct />
-    </>
-  )
+  return <FormCustomProduct />;
 }
 
 export default HomeForm;
