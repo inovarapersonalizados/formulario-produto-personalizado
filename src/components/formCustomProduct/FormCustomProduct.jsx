@@ -146,7 +146,7 @@ function FormCustomProduct() {
                         <CheckboxArea>
                             <label>Caneca</label>
                             <input
-                                type="checkbox"
+                                type="checkbox" id='caneca'
                                 checked={selectedProduct === 'caneca'}
                                 onChange={() => handleCheckboxChange('caneca')}
                                 disabled={selectedProduct !== null && selectedProduct !== 'caneca'}
@@ -155,7 +155,7 @@ function FormCustomProduct() {
                         <CheckboxArea>
                             <label>Agenda</label>
                             <input
-                                type="checkbox"
+                                type="checkbox" id='agenda'
                                 checked={selectedProduct === 'agenda'}
                                 onChange={() => handleCheckboxChange('agenda')}
                                 disabled={selectedProduct !== null && selectedProduct !== 'agenda'}
@@ -164,7 +164,7 @@ function FormCustomProduct() {
                         <CheckboxArea>
                             <label>Caderno</label>
                             <input
-                                type="checkbox"
+                                type="checkbox" id='caderno'
                                 checked={selectedProduct === 'caderno'}
                                 onChange={() => handleCheckboxChange('caderno')}
                                 disabled={selectedProduct !== null && selectedProduct !== 'caderno'}
