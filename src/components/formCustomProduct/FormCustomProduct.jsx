@@ -184,7 +184,7 @@ function FormCustomProduct() {
                                 <br />
                                 {file && <ImagePreview src={URL.createObjectURL(file)} alt="Sua Imagem" />}
                             </LabelInputUploadFile>
-                            <input type="file" className={styles.upload} id="upload" onChange={handleFileChange} required />
+                            <input type="file" className={styles.upload} id="upload" onChange={handleFileChange} />
                         </CustomInput>
                         <CustomInput>
                             <label>Observações</label>
